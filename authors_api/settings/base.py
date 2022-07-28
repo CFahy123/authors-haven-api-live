@@ -31,8 +31,8 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'django.contrib.admin',
+    'django.contrib.staticfiles',
 ]
 
 
@@ -93,7 +93,6 @@ WSGI_APPLICATION = 'authors_api.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
 DATABASES = {"default": env.db("DATABASE_URL")}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 PASSWORD_HASHERS = [
@@ -149,7 +148,7 @@ MANAGERS = ADMINS
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/staticfiles/'
-#STATIC_ROOT = str(ROOT_DIR / 'staticfiles')
+STATIC_ROOT = str(ROOT_DIR / 'staticfiles')
 STATICFILES_DIRS = []
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -179,7 +178,7 @@ LOGGING = {
         "handlers": {
             "console": {
                 "level" : "DEBUG",
-                "class": "loggin.StreamHandler",
+                "class": "logging.StreamHandler",
                 "formatter": "verbose",
             }
         },
